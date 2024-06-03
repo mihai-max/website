@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('code-background.jpg'); /* Add your stock photo of code */
+    background-size: cover;
+    background-position: center;
+}
+
+.orbit-container {
+    position: relative;
+    width: 200px; /* Smaller container */
+    height: 200px; /* Smaller container */
+}
+
+.face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.face img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.orbit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: rotate 20s infinite linear; /* Slower rotation */
+}
+
+.circle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    animation: counter-rotate 20s infinite linear;
+}
+
+.circle i {
+    font-size: 18px; /* Adjust icon size if needed */
+}
+
+.circle1 { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.circle2 { top: 25%; left: 93%; transform: translate(-50%, -50%); }
+.circle3 { top: 75%; left: 93%; transform: translate(-50%, -50%); }
+.circle4 { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.circle5 { top: 75%; left: 7%; transform: translate(-50%, -50%); }
+.circle6 { top: 25%; left: 7%; transform: translate(-50%, -50%); }
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes counter-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
