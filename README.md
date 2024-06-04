@@ -1,7 +1,3 @@
-Sure, here's the `README.md` formatted for GitHub:
-
----
-
 # Personal Website with Radar Effect
 
 This project is a personal website featuring a Vanta.js halo background on the main page and a radar effect animation with background sound on the second page. The radar effect reveals text elements around the screen and changes the background color after the text is displayed.
@@ -73,12 +69,9 @@ Replace `your-sound-file.wav` in `radar.html` with the path to your own `.wav` f
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the LGPL-2.1 license.
 
 ## Contact
 
 For any questions or suggestions, please contact [tckp@duck.com](mailto:tckp@duck.com).
 
----
-
-Feel free to update any sections with specific details relevant to your project, such as the demo link, customization options, and contact information.
