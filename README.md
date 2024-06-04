@@ -4,7 +4,7 @@ This project is a personal website featuring a Vanta.js halo background on the m
 
 ## Demo
 
-There is currently no demo webpage
+https://mihai-max.github.io/website
 
 ## Features
 
