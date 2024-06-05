@@ -4,24 +4,24 @@ body, html {
   width: 100%;
   height: 100%;
   font-family: Arial, sans-serif;
-  overflow-x: hidden;
-  background: black;
-  color: white;
+  overflow: hidden;
 }
 
 .vanta-container {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: black;
 }
 
 .content {
   z-index: 1;
   text-align: center;
+  color: white;
 }
 
 .content h1 {
@@ -45,28 +45,5 @@ body, html {
 }
 
 .content .buttons a:hover {
-  background-color: rgba(0, 0, 0, 1);
-}
-
-.bottom-bar {
-  width: 100%;
-  background-color: #3049ff;
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  position: absolute;
-  bottom: 0;
-}
-
-.privacy-button {
-  color: white;
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.privacy-button:hover {
   background-color: rgba(0, 0, 0, 1);
 }
