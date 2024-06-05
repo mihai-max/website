@@ -5,6 +5,8 @@ body, html {
   height: 100%;
   font-family: Arial, sans-serif;
   overflow-x: hidden;
+  background: black;
+  color: white;
 }
 
 .vanta-container {
@@ -14,14 +16,12 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  color: white;
-  text-align: center;
   overflow: hidden;
 }
 
 .content {
   z-index: 1;
+  text-align: center;
 }
 
 .content h1 {
@@ -54,8 +54,8 @@ body, html {
   color: white;
   text-align: center;
   padding: 20px 0;
-  position: relative;
-  margin-top: -5px;
+  position: absolute;
+  bottom: 0;
 }
 
 .privacy-button {
