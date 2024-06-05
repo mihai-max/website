@@ -1,113 +1,134 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    transition: background-color 4s ease;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  transition: background-color 4s ease;
+}
+
+body.blue-bg {
+  background-color: #3049ff;
+}
+
+.radar-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.radar {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
   }
-  
-  body.blue-bg {
-    background-color: #3049ff;
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
   }
-  
-  .radar-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  100% {
+    transform: translate(-50%, -50%) scale(1);
   }
-  
-  .radar {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .center-point {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 1px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wave {
+  animation: expand 4s linear infinite;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 1.33s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 2.66s;
+}
+
+@keyframes expand {
+  0% {
     width: 0;
     height: 0;
-    border: 1px solid white;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
+    opacity: 1;
   }
-  
-  .wave {
-    animation: expand 4s linear infinite;
-  }
-  
-  .wave:nth-child(2) {
-    animation-delay: 1.33s;
-  }
-  
-  .wave:nth-child(3) {
-    animation-delay: 2.66s;
-  }
-  
-  @keyframes expand {
-    0% {
-      width: 0;
-      height: 0;
-      opacity: 1;
-    }
-    100% {
-      width: 300vw;
-      height: 300vw;
-      opacity: 0;
-    }
-  }
-  
-  .text {
-    position: absolute;
+  100% {
+    width: 300vw;
+    height: 300vw;
     opacity: 0;
   }
-  
-  .reveal {
-    animation: reveal 4s forwards;
-  }
-  
-  @keyframes reveal {
-    0%, 25% { opacity: 0; }
-    50%, 100% { opacity: 1; }
-  }
-  
-  #play-button {
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
+}
+
+.text {
+  position: absolute;
+  opacity: 0;
+}
+
+.reveal {
+  animation: reveal 4s forwards;
+}
+
+@keyframes reveal {
+  0%, 25% { opacity: 0; }
+  50%, 100% { opacity: 1; }
+}
+
+#play-button {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#play-button:hover {
+  background-color: #333333;
+}
+
   
   #play-button:hover {
     background-color: #eeeeee;
