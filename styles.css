@@ -17,6 +17,11 @@ body, html {
   background-color: black;
   color: white;
   text-align: center;
+  overflow: hidden;
+}
+
+.content {
+  z-index: 1;
 }
 
 .content h1 {
@@ -50,7 +55,7 @@ body, html {
   text-align: center;
   padding: 20px 0;
   position: relative;
-  margin-top: 100vh; /* Position it below the fold */
+  margin-top: -5px;
 }
 
 .privacy-button {
