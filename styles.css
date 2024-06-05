@@ -3,47 +3,55 @@ body, html {
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: Arial, sans-serif;
   overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
 }
 
-.vanta-container {
-  position: relative;
+#vanta-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-color: black;
+  z-index: -1;
 }
 
 .content {
+  position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
   text-align: center;
-  color: white;
 }
 
-.content h1 {
-  margin: 0;
-  font-size: 4em;
+.name {
+  font-size: 3em;
+  margin-bottom: 20px;
 }
 
-.content .buttons {
-  margin-top: 20px;
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.content .buttons a {
+.button {
   display: inline-block;
-  margin: 10px;
   padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  margin: 10px;
+  font-size: 1.2em;
   color: white;
-  text-decoration: none;
+  background-color: #007BFF;
+  border: none;
   border-radius: 5px;
+  text-decoration: none;
   transition: background-color 0.3s ease;
 }
 
-.content .buttons a:hover {
-  background-color: rgba(0, 0, 0, 1);
+.button:hover {
+  background-color: #0056b3;
 }
