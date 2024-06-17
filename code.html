@@ -30,6 +30,7 @@
         &lt;a href=&quot;mailto:tckp@duck.com&quot;&gt;Email&lt;/a&gt;
         &lt;a href=&quot;https://github.com/mihai-max/website&quot; target=&quot;_blank&quot;&gt;Source Code&lt;/a&gt;
         &lt;a href=&quot;radar.html&quot;&gt;About Me&lt;/a&gt;
+        &lt;a href=&quot;code.html&quot;&gt;Code&lt;/a&gt; <!-- New link to code.html -->
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -104,6 +105,97 @@ document.addEventListener('DOMContentLoaded', () => {
     scale: 1.0,
     scaleMobile: 1.0
   });
+});
+    </code></pre>
+    <h2>radar.html</h2>
+    <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;About Me&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;radar.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&quot;radar-container&quot;&gt;
+    &lt;div id=&quot;radar&quot;&gt;
+      &lt;div id=&quot;radar-dot&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button id=&quot;start-animation&quot;&gt;Start Animation&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;script src=&quot;radar.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+    <h2>radar.css</h2>
+    <pre><code class="language-css">
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #3049ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#radar-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#radar {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#radar-dot {
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#start-animation {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+    </code></pre>
+    <h2>radar.js</h2>
+    <pre><code class="language-javascript">
+document.getElementById('start-animation').addEventListener('click', () => {
+  const radar = document.getElementById('radar-dot');
+  radar.style.animation = 'none';
+  radar.offsetHeight; /* trigger reflow */
+  radar.style.animation = '';
 });
     </code></pre>
   </div>
