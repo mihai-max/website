@@ -67,6 +67,10 @@ You can customize the Vanta.js halo background by modifying the `VANTA.HALO` con
 
 Replace `your-sound-file.wav` in `radar.html` with the path to your own `.wav` file for the background sound effect.
 
+### What's going to come soon?
+
+A code pafe isntead of github and a page to list all software you use and reccomend
+
 ## License
 
 This project is open-source and available under the LGPL-2.1 license.
