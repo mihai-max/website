@@ -71,8 +71,7 @@ Replace `your-sound-file.wav` in `radar.html` with the path to your own `.wav` f
 A form to send emails instead of your email address, google analytics support and a cookie popup with a privacy policy
 
 ## License
-
-This project is open-source and available under the LGPL-2.1 license.
+mihai-max/website © 2024 by Mihai Laudat is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International 
 
 ## Contact
 
