@@ -1,19 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
-
-// Scroll-triggered reveal wrapper. Children fade and slide up once when they
-// enter the viewport. Pass `delay` to stagger sibling reveals.
+// Fade/slide-in wrapper. Uses a CSS animation (see globals.css) that defaults
+// to fully visible, so content is never stuck hidden if JS/CSS is unavailable.
 export default function Reveal({ children, delay = 0, className }) {
+  const cls = className ? `reveal ${className}` : "reveal";
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.6, ease: "easeOut", delay }}
-    >
+    <div className={cls} style={{ animationDelay: `${delay}s` }}>
       {children}
-    </motion.div>
+    </div>
   );
 }

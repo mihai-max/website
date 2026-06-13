@@ -56,17 +56,45 @@ a {
   top: -10%;
   left: -5%;
   background: radial-gradient(circle, #3049ff, transparent 70%);
+  animation: floatA 20s ease-in-out infinite;
 }
 .blob-b {
   bottom: -15%;
   right: -10%;
   background: radial-gradient(circle, #7b3dff, transparent 70%);
+  animation: floatB 24s ease-in-out infinite;
 }
 .blob-c {
   top: 30%;
   left: 40%;
   background: radial-gradient(circle, #00c2ff, transparent 70%);
   opacity: 0.35;
+  animation: floatC 28s ease-in-out infinite;
+}
+
+@keyframes floatA {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(40px, -30px); }
+  66% { transform: translate(-20px, 20px); }
+}
+@keyframes floatB {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(-50px, 40px); }
+  66% { transform: translate(30px, -20px); }
+}
+@keyframes floatC {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -20px); }
+  66% { transform: translate(-40px, 30px); }
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  animation: revealUp 0.6s ease-out both;
+}
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
 }
 
 .bg-grid {
@@ -93,6 +121,11 @@ a {
   background: rgba(5, 6, 15, 0.55);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
+  animation: navDown 0.6s ease-out both;
+}
+@keyframes navDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: none; }
 }
 .nav-brand {
   font-weight: 800;
@@ -189,10 +222,12 @@ a {
   border: 1px solid rgba(159, 176, 255, 0.35);
   border-radius: 10px;
   backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
 .button:hover {
   background: rgba(48, 73, 255, 0.4);
   border-color: var(--accent-soft);
+  transform: translateY(-3px) scale(1.03);
 }
 
 /* ---------- Cards ---------- */
@@ -211,9 +246,11 @@ a {
   border: 1px solid var(--line);
   border-radius: 16px;
   backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .card:hover {
   border-color: rgba(159, 176, 255, 0.55);
+  transform: translateY(-6px);
 }
 .card-tag {
   display: inline-block;
@@ -246,9 +283,11 @@ a {
   border: 1px solid var(--line);
   border-radius: 14px;
   backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 .tile:hover {
   border-color: rgba(159, 176, 255, 0.5);
+  transform: translateY(-5px);
 }
 .tile-icon {
   font-size: 1.8rem;
@@ -291,7 +330,11 @@ a {
   html {
     scroll-behavior: auto;
   }
-  .blob {
+  .blob,
+  .nav,
+  .reveal {
     animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

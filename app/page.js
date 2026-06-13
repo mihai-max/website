@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Background from "./components/Background";
 import Nav from "./components/Nav";
 import Reveal from "./components/Reveal";
@@ -11,23 +8,36 @@ const links = [
   { label: "Email", href: "mailto:tckp@duck.com", external: false },
 ];
 
-const interests = [
-  { icon: "🎬", title: "Film & Drone", body: "Filmmaking and aerial videography with a DJI Mini 3." },
-  { icon: "✈️", title: "Aviation", body: "General aviation and working toward pilot training." },
-  { icon: "🤿", title: "Scuba Diving", body: "Exploring underwater whenever I get the chance." },
-  { icon: "⛳", title: "Golf", body: "Out on the course in and around Munich." },
-  { icon: "🖋️", title: "Fountain Pens", body: "A soft spot for ink and good paper." },
-  { icon: "🎮", title: "Gaming", body: "Unwinding with a good game." },
+const work = [
+  {
+    name: "LAUDAT",
+    tag: "Production & Film",
+    body: "My filmmaking and drone cinematography (DJI Mini 3) — and the brand that ties my creative projects together.",
+  },
+  {
+    name: "Homelab",
+    tag: "Self-hosted infrastructure",
+    body: "A self-hosted stack I run end to end — networking, identity, media, and home automation, with plenty of late-night debugging.",
+  },
 ];
 
-const heroContainer = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
-};
-const heroItem = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+function Links() {
+  return (
+    <div className="buttons">
+      {links.map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          className="button"
+          target={link.external ? "_blank" : undefined}
+          rel={link.external ? "noopener noreferrer" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -37,37 +47,20 @@ export default function Home() {
 
       <main id="top" className="content">
         {/* Hero */}
-        <motion.section
-          className="hero"
-          variants={heroContainer}
-          initial="hidden"
-          animate="show"
-        >
-          <motion.p className="eyebrow" variants={heroItem}>
-            Munich, Germany · roots in Romania
-          </motion.p>
-          <motion.h1 className="name" variants={heroItem}>
-            Mihai Laudat
-          </motion.h1>
-          <motion.p className="tagline" variants={heroItem}>
-            Student · Builder · Filmmaker
-          </motion.p>
-          <motion.nav className="buttons" variants={heroItem}>
-            {links.map((link) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                className="button"
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                whileHover={{ y: -3, scale: 1.04 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                {link.label}
-              </motion.a>
-            ))}
-          </motion.nav>
-        </motion.section>
+        <section className="hero">
+          <Reveal delay={0.05}>
+            <p className="eyebrow">Munich, Germany · roots in Romania</p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <h1 className="name">Mihai Laudat</h1>
+          </Reveal>
+          <Reveal delay={0.25}>
+            <p className="tagline">Student · Builder · Filmmaker</p>
+          </Reveal>
+          <Reveal delay={0.35}>
+            <Links />
+          </Reveal>
+        </section>
 
         {/* About */}
         <section id="about" className="section">
@@ -78,25 +71,25 @@ export default function Home() {
             <p className="lead">
               I&apos;m a student at the Lion-Feuchtwanger-Gymnasium in Munich,
               with family roots in Romania. I split my time between building
-              software, making films, and running the infrastructure behind it
-              all — and I share my home with a very good dog.
+              software, making films, and tinkering with tech — and I share my
+              home with a very good dog.
             </p>
           </Reveal>
         </section>
 
-        {/* Interests */}
-        <section id="interests" className="section">
+        {/* Work */}
+        <section id="work" className="section">
           <Reveal>
-            <h2 className="section-title">Off the clock</h2>
+            <h2 className="section-title">What I&apos;m building</h2>
           </Reveal>
-          <div className="grid">
-            {interests.map((it, i) => (
-              <Reveal key={it.title} delay={(i % 3) * 0.08} className="card-wrap">
-                <motion.div className="tile" whileHover={{ y: -5 }}>
-                  <span className="tile-icon">{it.icon}</span>
-                  <h4>{it.title}</h4>
-                  <p>{it.body}</p>
-                </motion.div>
+          <div className="cards">
+            {work.map((w, i) => (
+              <Reveal key={w.name} delay={i * 0.1} className="card-wrap">
+                <div className="card">
+                  <span className="card-tag">{w.tag}</span>
+                  <h3>{w.name}</h3>
+                  <p>{w.body}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -108,21 +101,7 @@ export default function Home() {
             <h2 className="section-title">Get in touch</h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <div className="buttons">
-              {links.map((link) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
-                  className="button"
-                  target={link.external ? "_blank" : undefined}
-                  rel={link.external ? "noopener noreferrer" : undefined}
-                  whileHover={{ y: -3, scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
-            </div>
+            <Links />
           </Reveal>
         </section>
 
@@ -141,7 +120,7 @@ export default function Home() {
           <p className="footer-egg">
             <a href="/dino.html">Found the easter egg? Beat my dino score: 2394.</a>
           </p>
-          <p className="footer-copy">© {new Date().getFullYear()} Mihai Laudat · LAUDAT</p>
+          <p className="footer-copy">© 2026 Mihai Laudat · LAUDAT</p>
         </footer>
       </main>
     </>

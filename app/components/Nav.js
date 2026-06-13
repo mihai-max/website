@@ -1,21 +1,12 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const sections = [
   { label: "About", href: "#about" },
-  { label: "Interests", href: "#interests" },
+  { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Nav() {
   return (
-    <motion.header
-      className="nav"
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-    >
+    <header className="nav">
       <a href="#top" className="nav-brand">
         LAUDAT
       </a>
@@ -26,6 +17,6 @@ export default function Nav() {
           </a>
         ))}
       </nav>
-    </motion.header>
+    </header>
   );
 }
