@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 
 const sections = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
   { label: "Interests", href: "#interests" },
   { label: "Contact", href: "#contact" },
 ];

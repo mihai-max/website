@@ -11,29 +11,11 @@ const links = [
   { label: "Email", href: "mailto:tckp@duck.com", external: false },
 ];
 
-const work = [
-  {
-    name: "KEEL",
-    tag: "Co-founder · SaaS",
-    body: "A B2B/B2C SaaS venture I'm building with co-founder Rohinjit Gujral — from product to pitch.",
-  },
-  {
-    name: "LAUDAT",
-    tag: "Brand · Production",
-    body: "My production and filmmaking work, drone cinematography, and the brand that ties my creative and technical projects together.",
-  },
-  {
-    name: "Homelab",
-    tag: "Self-hosted infrastructure",
-    body: "A self-hosted stack I run and maintain end to end — networking, identity, media, automation, and a lot of late-night debugging.",
-  },
-];
-
 const interests = [
   { icon: "🎬", title: "Film & Drone", body: "Filmmaking and aerial videography with a DJI Mini 3." },
   { icon: "✈️", title: "Aviation", body: "General aviation and working toward pilot training." },
   { icon: "🤿", title: "Scuba Diving", body: "Exploring underwater whenever I get the chance." },
-  { icon: "⛳", title: "Golf", body: "Member at Münchener Golf Club." },
+  { icon: "⛳", title: "Golf", body: "Out on the course in and around Munich." },
   { icon: "🖋️", title: "Fountain Pens", body: "A soft spot for ink and good paper." },
   { icon: "🎮", title: "Gaming", body: "Unwinding with a good game." },
 ];
@@ -100,24 +82,6 @@ export default function Home() {
               all — and I share my home with a very good dog.
             </p>
           </Reveal>
-        </section>
-
-        {/* Work */}
-        <section id="work" className="section">
-          <Reveal>
-            <h2 className="section-title">What I&apos;m building</h2>
-          </Reveal>
-          <div className="cards">
-            {work.map((w, i) => (
-              <Reveal key={w.name} delay={i * 0.1} className="card-wrap">
-                <motion.article className="card" whileHover={{ y: -6 }}>
-                  <span className="card-tag">{w.tag}</span>
-                  <h3>{w.name}</h3>
-                  <p>{w.body}</p>
-                </motion.article>
-              </Reveal>
-            ))}
-          </div>
         </section>
 
         {/* Interests */}
