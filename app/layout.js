@@ -2,13 +2,13 @@ import "./globals.css";
 
 export const metadata = {
   metadataBase: new URL("https://mihai.laudat.org"),
-  title: "Mihai Laudat — LAUDAT",
+  title: "LAUDAT — Mihai Laudat",
   description:
-    "Mihai Laudat — student, builder, and filmmaker in Munich. Co-founder of KEEL and creator of the LAUDAT brand spanning production, film, and self-hosted infrastructure.",
+    "LAUDAT is Mihai Laudat's production practice and self-hosted infrastructure stack in Munich — film and aerial video, a full self-hosted platform, and the policies that govern it.",
   openGraph: {
-    title: "Mihai Laudat — LAUDAT",
+    title: "LAUDAT — Mihai Laudat",
     description:
-      "Student, builder, and filmmaker in Munich. Co-founder of KEEL; creator of LAUDAT.",
+      "Production, self-hosted infrastructure, and policy. Built and run by Mihai Laudat in Munich.",
     url: "https://mihai.laudat.org",
     type: "website",
   },

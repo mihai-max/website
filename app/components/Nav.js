@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 
 const sections = [
-  { label: "About", href: "#about" },
-  { label: "Interests", href: "#interests" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/#work" },
+  { label: "Infrastructure", href: "/#stack" },
+  { label: "Legal", href: "/legal/" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Nav() {
@@ -16,7 +17,7 @@ export default function Nav() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <a href="#top" className="nav-brand">
+      <a href="/" className="nav-brand">
         LAUDAT
       </a>
       <nav className="nav-links">
