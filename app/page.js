@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Background from "./components/Background";
+import Nav from "./components/Nav";
+import Reveal from "./components/Reveal";
 
 const links = [
   { label: "GitHub", href: "https://github.com/mihai-max", external: true },
@@ -9,30 +11,38 @@ const links = [
   { label: "Email", href: "mailto:tckp@duck.com", external: false },
 ];
 
-const cards = [
+const work = [
   {
-    title: "Who am I?",
-    body: "A tech enthusiast who programs for fun.",
+    name: "KEEL",
+    tag: "Co-founder · SaaS",
+    body: "A B2B/B2C SaaS venture I'm building with co-founder Rohinjit Gujral — from product to pitch.",
   },
   {
-    title: "Where am I?",
-    body: "Romanian — I grew up in Singapore and now live in Munich, Germany.",
+    name: "LAUDAT",
+    tag: "Brand · Production",
+    body: "My production and filmmaking work, drone cinematography, and the brand that ties my creative and technical projects together.",
   },
   {
-    title: "What is this?",
-    body: "A personal corner of the web, built and tinkered with for the joy of it.",
+    name: "Homelab",
+    tag: "Self-hosted infrastructure",
+    body: "A self-hosted stack I run and maintain end to end — networking, identity, media, automation, and a lot of late-night debugging.",
   },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.1 },
-  },
-};
+const interests = [
+  { icon: "🎬", title: "Film & Drone", body: "Filmmaking and aerial videography with a DJI Mini 3." },
+  { icon: "✈️", title: "Aviation", body: "General aviation and working toward pilot training." },
+  { icon: "🤿", title: "Scuba Diving", body: "Exploring underwater whenever I get the chance." },
+  { icon: "⛳", title: "Golf", body: "Member at Münchener Golf Club." },
+  { icon: "🖋️", title: "Fountain Pens", body: "A soft spot for ink and good paper." },
+  { icon: "🎮", title: "Gaming", body: "Unwinding with a good game." },
+];
 
-const item = {
+const heroContainer = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+};
+const heroItem = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
@@ -41,23 +51,26 @@ export default function Home() {
   return (
     <>
       <Background />
+      <Nav />
 
-      <main className="content">
+      <main id="top" className="content">
+        {/* Hero */}
         <motion.section
           className="hero"
-          variants={container}
+          variants={heroContainer}
           initial="hidden"
           animate="show"
         >
-          <motion.h1 className="name" variants={item}>
+          <motion.p className="eyebrow" variants={heroItem}>
+            Munich, Germany · roots in Romania
+          </motion.p>
+          <motion.h1 className="name" variants={heroItem}>
             Mihai Laudat
           </motion.h1>
-
-          <motion.p className="tagline" variants={item}>
-            Tech enthusiast &amp; hobbyist programmer
+          <motion.p className="tagline" variants={heroItem}>
+            Student · Builder · Filmmaker
           </motion.p>
-
-          <motion.nav className="buttons" variants={item}>
+          <motion.nav className="buttons" variants={heroItem}>
             {links.map((link) => (
               <motion.a
                 key={link.label}
@@ -74,34 +87,98 @@ export default function Home() {
           </motion.nav>
         </motion.section>
 
-        <motion.section
-          className="about"
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={container}
-        >
-          <motion.h2 variants={item}>About me</motion.h2>
+        {/* About */}
+        <section id="about" className="section">
+          <Reveal>
+            <h2 className="section-title">About</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="lead">
+              I&apos;m a student at the Lion-Feuchtwanger-Gymnasium in Munich,
+              with family roots in Romania. I split my time between building
+              software, making films, and running the infrastructure behind it
+              all — and I share my home with a very good dog.
+            </p>
+          </Reveal>
+        </section>
 
+        {/* Work */}
+        <section id="work" className="section">
+          <Reveal>
+            <h2 className="section-title">What I&apos;m building</h2>
+          </Reveal>
           <div className="cards">
-            {cards.map((card) => (
-              <motion.article
-                key={card.title}
-                className="card"
-                variants={item}
-                whileHover={{ y: -6 }}
-              >
-                <h3>{card.title}</h3>
-                <p>{card.body}</p>
-              </motion.article>
+            {work.map((w, i) => (
+              <Reveal key={w.name} delay={i * 0.1} className="card-wrap">
+                <motion.article className="card" whileHover={{ y: -6 }}>
+                  <span className="card-tag">{w.tag}</span>
+                  <h3>{w.name}</h3>
+                  <p>{w.body}</p>
+                </motion.article>
+              </Reveal>
             ))}
           </div>
+        </section>
 
-          <motion.p className="easter" variants={item}>
-            Found the easter egg?{" "}
-            <a href="/dino.html">Try to beat my dino high score of 2394.</a>
-          </motion.p>
-        </motion.section>
+        {/* Interests */}
+        <section id="interests" className="section">
+          <Reveal>
+            <h2 className="section-title">Off the clock</h2>
+          </Reveal>
+          <div className="grid">
+            {interests.map((it, i) => (
+              <Reveal key={it.title} delay={(i % 3) * 0.08} className="card-wrap">
+                <motion.div className="tile" whileHover={{ y: -5 }}>
+                  <span className="tile-icon">{it.icon}</span>
+                  <h4>{it.title}</h4>
+                  <p>{it.body}</p>
+                </motion.div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="section contact">
+          <Reveal>
+            <h2 className="section-title">Get in touch</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="buttons">
+              {links.map((link) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  className="button"
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  whileHover={{ y: -3, scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+
+        <footer className="footer">
+          <p>
+            Supporting{" "}
+            <a
+              href="https://www.pancan.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              pancreatic cancer awareness
+            </a>
+            .
+          </p>
+          <p className="footer-egg">
+            <a href="/dino.html">Found the easter egg? Beat my dino score: 2394.</a>
+          </p>
+          <p className="footer-copy">© {new Date().getFullYear()} Mihai Laudat · LAUDAT</p>
+        </footer>
       </main>
     </>
   );

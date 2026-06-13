@@ -1,9 +1,11 @@
 # Personal Website
 
-A small personal website for Mihai Laudat, built with **Next.js** (App Router)
-and statically exported for **GitHub Pages**. Animations are powered by
-[Framer Motion](https://www.framer.com/motion/) — an animated aurora
-background, fade/slide-in hero, and staggered, scroll-revealed about cards.
+A personal website for Mihai Laudat — student, builder, and filmmaker in
+Munich, co-founder of KEEL and creator of the LAUDAT brand. Built with
+**Next.js** (App Router) and statically exported for **GitHub Pages**.
+Animations are powered by [Framer Motion](https://www.framer.com/motion/) —
+an animated aurora background, a sticky nav, a fade/slide-in hero, and
+scroll-revealed sections (About, Work, Interests, Contact).
 
 ## Demo
 
@@ -41,8 +43,10 @@ straight from the `public/` directory.
 
 ## Project structure
 
-- `app/page.js` — Main page (hero + about), with Framer Motion animations.
+- `app/page.js` — Main page (hero, about, work, interests, contact).
 - `app/components/Background.js` — Animated aurora background.
+- `app/components/Nav.js` — Sticky top navigation.
+- `app/components/Reveal.js` — Scroll-triggered reveal wrapper.
 - `app/globals.css` — Global styles.
 - `app/layout.js` — Root layout and metadata.
 - `public/dino.html` — Chrome T-Rex game easter egg.

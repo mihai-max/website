@@ -3,10 +3,17 @@
   --accent: #3049ff;
   --accent-soft: #9fb0ff;
   --text: #f4f6ff;
+  --muted: rgba(244, 246, 255, 0.66);
+  --line: rgba(255, 255, 255, 0.1);
+  --maxw: 1040px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -31,8 +38,7 @@ a {
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background:
-    radial-gradient(120% 120% at 50% 0%, #0b1030 0%, var(--bg) 60%);
+  background: radial-gradient(120% 120% at 50% 0%, #0b1030 0%, var(--bg) 60%);
 }
 
 .blob {
@@ -43,27 +49,24 @@ a {
   max-height: 720px;
   border-radius: 50%;
   filter: blur(90px);
-  opacity: 0.55;
+  opacity: 0.5;
   will-change: transform;
 }
-
 .blob-a {
   top: -10%;
   left: -5%;
   background: radial-gradient(circle, #3049ff, transparent 70%);
 }
-
 .blob-b {
   bottom: -15%;
   right: -10%;
   background: radial-gradient(circle, #7b3dff, transparent 70%);
 }
-
 .blob-c {
   top: 30%;
   left: 40%;
   background: radial-gradient(circle, #00c2ff, transparent 70%);
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 .bg-grid {
@@ -76,53 +79,109 @@ a {
   mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
 }
 
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(20px, 5vw, 48px);
+  background: rgba(5, 6, 15, 0.55);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-brand {
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+.nav-links {
+  display: flex;
+  gap: clamp(12px, 3vw, 28px);
+}
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover {
+  color: var(--text);
+}
+
 /* ---------- Layout ---------- */
 .content {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 80px 20px;
-  text-align: center;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px 60px;
+}
+
+.section {
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+}
+.section-title {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  margin: 0 0 28px;
+}
+.lead {
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  line-height: 1.7;
+  max-width: 720px;
+  color: var(--muted);
+  margin: 0;
 }
 
 /* ---------- Hero ---------- */
 .hero {
-  margin-bottom: 110px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
 }
-
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--accent-soft);
+  text-transform: uppercase;
+}
 .name {
   margin: 0;
-  font-size: clamp(2.6rem, 9vw, 5rem);
+  font-size: clamp(3rem, 12vw, 6.5rem);
   font-weight: 800;
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
+  line-height: 1;
   background: linear-gradient(120deg, #fff 0%, var(--accent-soft) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 6px 40px rgba(48, 73, 255, 0.25);
 }
-
 .tagline {
-  margin: 14px 0 36px;
-  font-size: clamp(1rem, 3vw, 1.4rem);
-  opacity: 0.8;
+  margin: 18px 0 36px;
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  color: var(--muted);
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 14px;
 }
-
 .button {
   display: inline-block;
   padding: 12px 26px;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   font-weight: 500;
   color: #fff;
   text-decoration: none;
@@ -131,61 +190,107 @@ a {
   border-radius: 10px;
   backdrop-filter: blur(8px);
 }
-
 .button:hover {
   background: rgba(48, 73, 255, 0.4);
   border-color: var(--accent-soft);
 }
 
-/* ---------- About ---------- */
-.about {
-  width: 100%;
-  max-width: 980px;
-}
-
-.about h2 {
-  margin: 0 0 32px;
-  font-size: clamp(1.6rem, 5vw, 2.3rem);
-}
-
+/* ---------- Cards ---------- */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
 }
-
+.card-wrap {
+  display: flex;
+}
 .card {
+  width: 100%;
   padding: 28px 24px;
-  text-align: left;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--line);
   border-radius: 16px;
   backdrop-filter: blur(10px);
 }
-
 .card:hover {
-  border-color: rgba(159, 176, 255, 0.6);
+  border-color: rgba(159, 176, 255, 0.55);
 }
-
-.card h3 {
-  margin: 0 0 12px;
+.card-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   color: var(--accent-soft);
-  font-size: 1.15rem;
+  margin-bottom: 12px;
 }
-
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
 .card p {
   margin: 0;
   line-height: 1.6;
-  opacity: 0.88;
+  color: var(--muted);
 }
 
-.easter {
-  margin-top: 44px;
+/* ---------- Interests grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.tile {
+  height: 100%;
+  padding: 24px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+}
+.tile:hover {
+  border-color: rgba(159, 176, 255, 0.5);
+}
+.tile-icon {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 12px;
+}
+.tile h4 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+.tile p {
+  margin: 0;
   font-size: 0.95rem;
-  opacity: 0.7;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* ---------- Contact / footer ---------- */
+.contact .buttons {
+  justify-content: flex-start;
+}
+.footer {
+  padding: 48px 0 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.footer p {
+  margin: 6px 0;
+}
+.footer-egg a {
+  color: var(--muted);
+}
+.footer-copy {
+  margin-top: 18px;
+  opacity: 0.6;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .blob {
     animation: none !important;
   }
