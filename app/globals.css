@@ -287,6 +287,104 @@ a {
   opacity: 0.6;
 }
 
+/* ---------- Kickers / section intros ---------- */
+.kicker {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+  margin-bottom: 12px;
+}
+.section-intro {
+  color: var(--muted);
+  max-width: 680px;
+  margin: -12px 0 30px;
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+/* ---------- Pillars (reuse .cards/.card) ---------- */
+.card .kicker {
+  color: var(--accent-soft);
+}
+.card-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--accent-soft);
+  text-decoration: none;
+  font-weight: 500;
+}
+.card-link:hover {
+  color: var(--text);
+}
+
+/* ---------- Stack tiles ---------- */
+.tile h4 {
+  font-family: ui-monospace, SFMono-Regular, Menlo, "Cascadia Code", monospace;
+  letter-spacing: -0.2px;
+}
+
+/* ---------- Legal pages ---------- */
+.legal {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 128px 20px 64px;
+}
+.legal h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -1px;
+  margin: 0 0 10px;
+}
+.legal-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 36px;
+}
+.legal h2 {
+  font-size: 1.25rem;
+  margin: 38px 0 12px;
+}
+.legal p,
+.legal li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+.legal ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.legal li {
+  margin: 6px 0;
+}
+.legal a {
+  color: var(--accent-soft);
+}
+.legal .lead {
+  margin-bottom: 8px;
+}
+.back-link {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+.back-link:hover {
+  color: var(--text);
+}
+.legal-note {
+  margin-top: 44px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.9rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
