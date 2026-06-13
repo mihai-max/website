@@ -1,37 +1,53 @@
 # Personal Website
 
-A clean, single-page personal website for Mihai Laudat, featuring a Vanta.js
-halo background, an about section, and links to GitHub, Discord, and email.
+A small personal website for Mihai Laudat, built with **Next.js** (App Router)
+and statically exported for **GitHub Pages**. Animations are powered by
+[Framer Motion](https://www.framer.com/motion/) — an animated aurora
+background, fade/slide-in hero, and staggered, scroll-revealed about cards.
 
 ## Demo
 
 https://mihai.laudat.org
 
-## Features
+## Tech
 
-- Vanta.js halo background animation.
-- Centered name and tagline with quick links (GitHub, Discord, Email, Source Code).
-- "About me" cards describing who/where/what.
-- Hidden Chrome T-Rex game easter egg (`dino.html`).
+- [Next.js 14](https://nextjs.org/) with `output: "export"` (fully static).
+- [Framer Motion](https://www.framer.com/motion/) for animations.
+- Deployed to GitHub Pages via GitHub Actions.
 
-## Files
+## Local development
 
-- `index.html` — Main page with the Vanta.js halo background and about section.
-- `styles.css` — Styles for the main page.
-- `script.js` — Initialises the Vanta.js halo background.
-- `code.html` / `code.css` / `prism.js` — Source code display page.
-- `dino.html` — Chrome T-Rex game easter egg.
-- `CNAME` — Custom domain configuration.
+```sh
+npm install
+npm run dev      # http://localhost:3000
+```
 
-## Customization
+## Build
 
-### Vanta.js background
+```sh
+npm run build    # outputs a static site to ./out
+```
 
-Customize the halo background by editing the `VANTA.HALO` configuration in `script.js`.
+## Deployment
 
-### Content
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the
+static export and deploys it to GitHub Pages.
 
-Update your name, tagline, links, and the about cards directly in `index.html`.
+> One-time setup: in the repository settings, set **Settings → Pages → Build
+> and deployment → Source** to **GitHub Actions**.
+
+The custom domain (`public/CNAME`) and the `dino.html` easter egg are served
+straight from the `public/` directory.
+
+## Project structure
+
+- `app/page.js` — Main page (hero + about), with Framer Motion animations.
+- `app/components/Background.js` — Animated aurora background.
+- `app/globals.css` — Global styles.
+- `app/layout.js` — Root layout and metadata.
+- `public/dino.html` — Chrome T-Rex game easter egg.
+- `public/CNAME` — Custom domain configuration.
+- `next.config.mjs` — Static export configuration.
 
 ## License
 

@@ -1,0 +1,192 @@
+:root {
+  --bg: #05060f;
+  --accent: #3049ff;
+  --accent-soft: #9fb0ff;
+  --text: #f4f6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--accent-soft);
+}
+
+/* ---------- Animated background ---------- */
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 120% at 50% 0%, #0b1030 0%, var(--bg) 60%);
+}
+
+.blob {
+  position: absolute;
+  width: 46vw;
+  height: 46vw;
+  max-width: 720px;
+  max-height: 720px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+  will-change: transform;
+}
+
+.blob-a {
+  top: -10%;
+  left: -5%;
+  background: radial-gradient(circle, #3049ff, transparent 70%);
+}
+
+.blob-b {
+  bottom: -15%;
+  right: -10%;
+  background: radial-gradient(circle, #7b3dff, transparent 70%);
+}
+
+.blob-c {
+  top: 30%;
+  left: 40%;
+  background: radial-gradient(circle, #00c2ff, transparent 70%);
+  opacity: 0.4;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+}
+
+/* ---------- Layout ---------- */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  margin-bottom: 110px;
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(2.6rem, 9vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  background: linear-gradient(120deg, #fff 0%, var(--accent-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 6px 40px rgba(48, 73, 255, 0.25);
+}
+
+.tagline {
+  margin: 14px 0 36px;
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  opacity: 0.8;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 26px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  background: rgba(48, 73, 255, 0.18);
+  border: 1px solid rgba(159, 176, 255, 0.35);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.button:hover {
+  background: rgba(48, 73, 255, 0.4);
+  border-color: var(--accent-soft);
+}
+
+/* ---------- About ---------- */
+.about {
+  width: 100%;
+  max-width: 980px;
+}
+
+.about h2 {
+  margin: 0 0 32px;
+  font-size: clamp(1.6rem, 5vw, 2.3rem);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 28px 24px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.card:hover {
+  border-color: rgba(159, 176, 255, 0.6);
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  color: var(--accent-soft);
+  font-size: 1.15rem;
+}
+
+.card p {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.88;
+}
+
+.easter {
+  margin-top: 44px;
+  font-size: 0.95rem;
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none !important;
+  }
+}
